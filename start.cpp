@@ -1,64 +1,66 @@
-#include"bits\stdc++.h"
+#include"iostream"
 
 using namespace std;
 
-string op;
+char op;
 
 float num1;
 
 float num2;
 
-float sum;
+float result;
 
-string validops = ("+","-","*","/");
 
 string errormsg1 = "please restart and choose a valid op (*, +, -, /)..";
 
-int main(){
+int main() {
 
-    cout<<"welcome to my simple calculator."<<endl<<"choose an opertator(*, +, /, -) to start please...";
-    cin>>op;
+    cout << "welcome to my simple calculator." << endl << "choose an opertator(*, +, /, -) to start please...";
+    cin >> op;
 
-    if (op != validops){
+    if (op !='+'&&op!='-'&&op!='*'&&op!='/') {
 
-        cout<<errormsg1;
-        abort();
+        cout << errormsg1;
+        exit(0);
+    }
+    cout << "enter num 1___" << endl;
+    cin >> num1;
 
+    cout << "enter num 2___" << endl;
+    cin >> num2;
+
+
+    if (op ==   '+') {
+
+        result = num1 + num2;
+
+        cout << result;
+    }
+    else if (op == '*') {
+
+        result = num1 * num2;
+
+        cout << result;
+    }
+    else if (op == '/') {
+
+        result = num1 / num2;
+
+        cout << result;
+    }
+    else if (op == '-') {
+
+        result = num1 - num2;
+
+        cout << result;
     }
 
-    cout<<"enter num 1___"<<endl;
-    cin>>num1;
-
-    cout<<"enter num 2___"<<endl;
-    cin>>num2;
-
-
-    if(op == "+"){
-
-        sum = num1 + num2;
-
-        cout<<sum;
-    }
-
-    else if(op == "*"){
-
-        sum = num1 * num2;
-
-        cout<<sum;
-    }
-
-    else if(op == "/"){
-
-        sum = num1 / num2;
-
-        cout<<sum;
-    }
-
+}
     else if(op == "-"){
 
-        sum = num1 - num2;
+        result = num1 - num2;
 
-        cout<<sum;
+        cout<< result;
     }
 
 
