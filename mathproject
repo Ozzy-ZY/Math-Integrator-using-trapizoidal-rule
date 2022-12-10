@@ -1,0 +1,50 @@
+#include <bits/stdc++.h> //including the libraries we are using in the project
+using namespace std;
+#define f(x) x*x
+ //the function we use.
+
+int main(){
+
+        cout << "' Trapezoidal rule is a rule that used to find the approximation of a definite integral '" << "\n" << "\n";
+
+
+        int n;
+        cout << "Enter the number of SubIntervals: ";
+        cin >> n;
+        cout << endl;
+
+        float Upper, Lower;
+
+        cout << "Enter the Lower: ";
+        cin >> Lower;
+        cout << endl;
+
+        cout << "Enter the Upper: ";
+        cin >> Upper;
+
+
+        float h;
+        h = (Upper - Lower) / n;
+
+
+        float integration = 0.0, sigma;
+
+        integration = f(Upper) + f(Lower);
+        cout<<"_______________"<<endl;
+        cout<<"| "<<"x "<<"| "<<"f(x) "<<"|"<<endl;
+        for (int i = 1; i <= n - 1; i++) {
+            cout<<"_______________"<<endl;
+
+            cout<<"| "<<sigma<<" | "<<f(sigma)<<" | "<<endl;
+
+
+            sigma = Lower + i * h;
+            integration = integration + 2 * (f(sigma));
+        }
+        cout<<"_______________";
+        cout << endl;
+        integration = integration * h / 2;
+        cout << "Your required value of integration is : " << integration << endl;
+
+
+}
