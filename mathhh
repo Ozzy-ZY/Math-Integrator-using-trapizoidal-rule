@@ -3,7 +3,7 @@
 #include <math.h>
 
 //Define function here
-#define f(x) x*x
+#define f(x) 1/(x*x)
 
 using namespace std;
 
@@ -40,15 +40,15 @@ int main()
 
     cout << "_________________" << endl;
     cout << "| " << "  x  " << "| " << "f(x) " << "|" << endl;
+    cout << "| " << Lower << " | " << f(Lower) << " | " << endl;
 
     for (int i = 1; i <= n - 1; i++)
     {
 
-        cout << "_________________" << endl;
-        cout << "| " << sigma << " | " << f(sigma) << " | " << endl; // the creation of our humble table
-
         sigma = Lower + i * h;
         integration = integration + 2 * (f(sigma)); //calculating the in between integrands and adding them to the upper and the lower ones
+        cout << "_________________" << endl;
+        cout << "| " << sigma << " | " << f(sigma) << " | " << endl; // the creation of our humble table
 
     }
 
