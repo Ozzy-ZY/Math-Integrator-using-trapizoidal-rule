@@ -1,50 +1,55 @@
-#include <bits/stdc++.h> //including the libraries we are using in the project
+#include <iostream> // including the libraries
+#include <iomanip>
+#include <math.h>
+
+//Define function here
+#define f(x) x*x //writing the function
+
 using namespace std;
-#define f(x) x*x
- //the function we use.
 
-int main(){
+int main()
+{
+    int n;
+    float Upper , Lower,h,integration = 0.0 , sigma=0.0,Steps = 0.0;
+    //saving a space for the inputs
 
-        cout << "' Trapezoidal rule is a rule that used to find the approximation of a definite integral '" << "\n" << "\n";
+    //Rule definition
+    cout << "' Trapezoidal rule is a rule that used to find the approximation of a definite integral '" << "\n" << "\n";
 
+    cout << " Enter the number of SubIntervals: ";
+    cin >> n;
+    cout << endl;
 
-        int n;
-        cout << "Enter the number of SubIntervals: ";
-        cin >> n;
-        cout << endl;
+    cout << " Enter lower and upper (a, b) : ";
+    cin >>Lower>>Upper;
 
-        float Upper, Lower;
+    // Finding step size
+    h = (Upper - Lower) / n;
 
-        cout << "Enter the Lower: ";
-        cin >> Lower;
-        cout << endl;
+    // Finding Integration Value
+    integration = f(Upper) + f(Lower);
 
-        cout << "Enter the Upper: ";
-        cin >> Upper;
+    cout << endl;
+    cout << "==============Table==============" <<"\n"<<"\n";
+    cout << "\tX\t"<<" |"<<"\t" <<"F(X)"<<endl;
+    cout << "  --------------------------------"<<endl;
+    cout << "\t" << Lower<<"\t |\t"<<f(Lower)<<endl;       //disapear
 
+    for (int i = 1; i <= n - 1; i++)
+    {
+        Steps += h;
+        cout << "\n" <<"\t"<<Steps << "\t |\t" << f(Steps) << endl;
 
-        float h;
-        h = (Upper - Lower) / n;
+        sigma = Lower + i * h;
+        integration = integration + 2 * (f(sigma));
+    }
+    cout << endl;
+    cout << "\t" << Upper << "\t |\t" << f(Upper)<<endl; //
+    cout << "====================================" << "\n\n";
 
+    integration = integration * h / 2;
 
-        float integration = 0.0, sigma;
+    cout << " Required value of integration is: " << integration << endl; //displaying
 
-        integration = f(Upper) + f(Lower);
-        cout<<"_______________"<<endl;
-        cout<<"| "<<"x "<<"| "<<"f(x) "<<"|"<<endl;
-        for (int i = 1; i <= n - 1; i++) {
-            cout<<"_______________"<<endl;
-
-            cout<<"| "<<sigma<<" | "<<f(sigma)<<" | "<<endl;
-
-
-            sigma = Lower + i * h;
-            integration = integration + 2 * (f(sigma));
-        }
-        cout<<"_______________";
-        cout << endl;
-        integration = integration * h / 2;
-        cout << "Your required value of integration is : " << integration << endl;
-
-
+    return 0;
 }
